@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="ru" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Алексей &amp; Валерия — 28 мая 2026</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <script src="https://cdn.jsdelivr.net/npm/lucide@0.263.0/dist/umd/lucide.min.js"></script>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&amp;family=DM+Sans:wght@300;400;500&amp;display=swap" rel="stylesheet">
+  <style>
+  html, body { height: 100%; margin: 0; }
+  * { box-sizing: border-box; }
+  .font-serif-display { font-family: 'Playfair Display', Georgia, serif; }
+  .font-body { font-family: 'DM Sans', system-ui, sans-serif; }
+
+  .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  .film-grain {
+    position: relative;
+    overflow: hidden;
+  }
+  .film-grain::after {
+    content: '';
+    position: absolute; inset: 0;
+    background: linear-gradient(135deg, rgba(210,190,170,0.15) 0%, rgba(180,160,140,0.08) 100%);
+    pointer-events: none;
+  }
+
+  .photo-placeholder {
+    background: linear-gradient(145deg, #d4c4b0, #e8ddd0, #c9b89e);
+    border-radius: 4px;
+  }
+
+  input, select, textarea {
+    font-family: 'DM Sans', system-ui, sans-serif;
+  }
+
+  .timeline-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  ::selection {
+    background: #c9b89e;
+    color: #3d3427;
+  }
+
+  @keyframes gentle-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
+  }
+
+  .scroll-arrow { animation: gentle-float 2.5s ease-in-out infinite; }
+</style>
+  <script>
+tailwind.config = {
+  theme: {
+    extend: {
+      colors: {
+        cream: '#FAF6F1',
+        beige: '#EDE5DA',
+        warm: '#D4C4B0',
+        brown: '#8B7355',
+        dark: '#3D3427',
+      }
+    }
+  }
+}
+</script>
+  <style>body { box-sizing: border-box; }</style>
+ </head>
+ <body class="h-full font-body bg-cream text-dark">
+  <div id="app" class="w-full h-full overflow-auto">
+   <!-- HERO -->
+   <section class="min-h-full flex flex-col items-center justify-center px-6 py-20 text-center relative">
+    <p class="text-sm tracking-[0.35em] uppercase text-brown mb-6 fade-in font-body" style="font-weight:400" id="hero-phrase-el">ПРИВЕТ, МЫ ЖЕНИМСЯ</p>
+    <h1 class="font-serif-display text-5xl sm:text-7xl md:text-8xl font-normal leading-tight mb-4 fade-in" id="hero-names-el">Алексей <span class="italic font-light">&amp;</span> Валерия</h1>
+    <p class="text-lg sm:text-xl tracking-[0.2em] text-brown mt-4 mb-12 fade-in font-body" style="font-weight:300" id="hero-date-el">28 мая 2026</p><!-- Photo collage placeholder -->
+    <div class="flex gap-3 sm:gap-5 items-end mb-16 fade-in">
+     <div class="photo-placeholder film-grain w-24 h-32 sm:w-32 sm:h-44 rotate-[-3deg] shadow-md flex items-center justify-center text-xs text-brown">
+      Жених
+     </div>
+     <div class="photo-placeholder film-grain w-28 h-36 sm:w-36 sm:h-48 rotate-[1deg] shadow-md flex items-center justify-center text-xs text-brown" style="margin-bottom:8px">
+      Невеста
+     </div>
+     <div class="photo-placeholder film-grain w-24 h-32 sm:w-32 sm:h-44 rotate-[4deg] shadow-md flex items-center justify-center text-xs text-brown">
+      Коты
+     </div>
+    </div>
+    <div class="scroll-arrow text-warm">
+     <i data-lucide="chevron-down" style="width:28px;height:28px"></i>
+    </div>
+   </section><!-- DIVIDER -->
+   <div class="flex justify-center py-4">
+    <div class="w-16 h-px bg-warm"></div>
+   </div><!-- TIMELINE -->
+   <section class="py-24 sm:py-32 px-6">
+    <div class="max-w-lg mx-auto">
+     <h2 class="font-serif-display text-3xl sm:text-4xl text-center mb-16 fade-in">День свадьбы</h2>
+     <div class="space-y-10">
+      <div class="flex items-start gap-5 fade-in">
+       <div class="flex flex-col items-center mt-1">
+        <div class="timeline-dot bg-brown"></div>
+        <div class="w-px h-12 bg-warm mt-1"></div>
+       </div>
+       <div>
+        <p class="text-sm tracking-widest uppercase text-brown mb-1" style="font-weight:300">11:00</p>
+        <p class="font-serif-display text-xl">Церемония</p>
+        <p class="text-sm text-brown mt-1" style="font-weight:300">Торжественная регистрация</p>
+       </div>
+      </div>
+      <div class="flex items-start gap-5 fade-in">
+       <div class="flex flex-col items-center mt-1">
+        <div class="timeline-dot bg-warm"></div>
+        <div class="w-px h-12 bg-warm mt-1"></div>
+       </div>
+       <div>
+        <p class="text-sm tracking-widest uppercase text-brown mb-1" style="font-weight:300">12:00</p>
+        <p class="font-serif-display text-xl">Прогулка в парке</p>
+        <p class="text-sm text-brown mt-1" style="font-weight:300">Фотосессия и прогулка</p>
+       </div>
+      </div>
+      <div class="flex items-start gap-5 fade-in">
+       <div class="flex flex-col items-center mt-1">
+        <div class="timeline-dot bg-brown"></div>
+       </div>
+       <div>
+        <p class="text-sm tracking-widest uppercase text-brown mb-1" style="font-weight:300">14:00</p>
+        <p class="font-serif-display text-xl">Банкет</p>
+        <p class="text-sm text-brown mt-1" style="font-weight:300">Ужин и праздник</p>
+       </div>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="flex justify-center py-4">
+    <div class="w-16 h-px bg-warm"></div>
+   </div><!-- LOCATIONS -->
+   <section class="py-24 sm:py-32 px-6">
+    <div class="max-w-xl mx-auto">
+     <h2 class="font-serif-display text-3xl sm:text-4xl text-center mb-16 fade-in">Локации</h2>
+     <div class="grid sm:grid-cols-2 gap-10">
+      <div class="text-center fade-in">
+       <p class="font-serif-display text-xl mb-2">Церемония</p>
+       <p class="text-sm text-brown mb-2" style="font-weight:300">Дворец бракосочетания 3<br>
+         Кочубеевский сад<br>
+         Садовая улица, 22</p><a href="https://yandex.ru/maps/?text=Садовая+улица+22" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-brown border border-warm rounded-full px-5 py-2 hover:bg-beige transition-colors" style="font-weight:400"> <i data-lucide="map-pin" style="width:14px;height:14px"></i> Открыть в карте </a>
+      </div>
+      <div class="text-center fade-in">
+       <p class="font-serif-display text-xl mb-2">Банкет</p>
+       <p class="text-sm text-brown mb-2" style="font-weight:300">Ресторан 9Parrots<br>
+         Кузьминское шоссе, 66</p><a href="https://yandex.ru/maps/?text=Кузьминское+шоссе+66" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-sm text-brown border border-warm rounded-full px-5 py-2 hover:bg-beige transition-colors" style="font-weight:400"> <i data-lucide="map-pin" style="width:14px;height:14px"></i> Открыть в карте </a>
+      </div>
+     </div>
+    </div>
+   </section>
+   <div class="flex justify-center py-4">
+    <div class="w-16 h-px bg-warm"></div>
+   </div><!-- DRESS CODE -->
+   <section class="py-24 sm:py-32 px-6">
+    <div class="max-w-md mx-auto text-center">
+     <h2 class="font-serif-display text-3xl sm:text-4xl mb-8 fade-in">Дресс-код</h2>
+     <p class="text-base text-brown mb-8 fade-in" style="font-weight:300;line-height:1.8">Просим воздержаться от ярких и кислотных цветов.</p>
+     <div class="flex justify-center gap-4 fade-in flex-wrap">
+      <div class="w-10 h-10 rounded-full bg-dark shadow-sm"></div>
+      <div class="w-10 h-10 rounded-full shadow-sm" style="background:#5C3D3D"></div>
+      <div class="w-10 h-10 rounded-full shadow-sm" style="background:#1B2A4D"></div>
+      <div class="w-10 h-10 rounded-full shadow-sm" style="background:#999999"></div>
+      <div class="w-10 h-10 rounded-full bg-brown shadow-sm"></div>
+      <div class="w-10 h-10 rounded-full shadow-sm" style="background:#F5E6D3"></div>
+      <div class="w-10 h-10 rounded-full shadow-sm" style="background:#C4A582"></div>
+     </div>
+    </div>
+   </section>
+   <div class="flex justify-center py-4">
+    <div class="w-16 h-px bg-warm"></div>
+   </div><!-- GIFTS -->
+   <section class="py-24 sm:py-32 px-6">
+    <div class="max-w-md mx-auto text-center">
+     <h2 class="font-serif-display text-3xl sm:text-4xl mb-8 fade-in">Подарки</h2>
+     <p class="text-base text-brown fade-in" style="font-weight:300;line-height:1.8">Не беспокойтесь о выборе подарков и не везите цветов: мы будем рады подарку в конверте, он поможет нам поехать в свадебное путешествие</p>
+    </div>
+   </section>
+   <div class="flex justify-center py-4">
+    <div class="w-16 h-px bg-warm"></div>
+   </div><!-- RSVP -->
+   <section class="py-24 sm:py-32 px-6">
+    <div class="max-w-md mx-auto">
+     <h2 class="font-serif-display text-3xl sm:text-4xl text-center mb-4 fade-in">Форма обратной связи</h2>
+     <p class="text-sm text-brown text-center mb-10 fade-in" style="font-weight:300" id="rsvp-deadline-el">Пожалуйста, ответьте до 10 мая</p>
+     <form id="rsvp-form" class="space-y-6 fade-in">
+      <div>
+       <label for="rsvp-name" class="block text-sm mb-2 text-brown" style="font-weight:400">Ваше имя</label> <input type="text" id="rsvp-name" required class="w-full bg-transparent border-b border-warm focus:border-brown outline-none py-2 text-dark placeholder-warm transition-colors" placeholder="Имя и фамилия">
+      </div>
+      <div>
+       <label for="rsvp-attending" class="block text-sm mb-2 text-brown" style="font-weight:400">Придёте ли вы?</label> <select id="rsvp-attending" required class="w-full bg-transparent border-b border-warm focus:border-brown outline-none py-2 text-dark transition-colors"> <option value="">Выберите</option> <option value="yes">Да, с радостью!</option> <option value="no">К сожалению, нет</option> </select>
+      </div>
+      <div>
+       <label for="rsvp-plus" class="block text-sm mb-2 text-brown" style="font-weight:400">Будет ли +1?</label> <select id="rsvp-plus" class="w-full bg-transparent border-b border-warm focus:border-brown outline-none py-2 text-dark transition-colors"> <option value="no">Нет</option> <option value="yes">Да</option> </select>
+      </div>
+      <div><label class="block text-sm mb-3 text-brown" style="font-weight:400">Предпочтения по напиткам</label>
+       <div class="space-y-2"><label class="flex items-center gap-2 cursor-pointer"> <input type="checkbox" name="drinks" value="wine" class="w-4 h-4"> <span class="text-sm text-brown">Вино</span> </label> <label class="flex items-center gap-2 cursor-pointer"> <input type="checkbox" name="drinks" value="champagne" class="w-4 h-4"> <span class="text-sm text-brown">Шампанское</span> </label> <label class="flex items-center gap-2 cursor-pointer"> <input type="checkbox" name="drinks" value="cocktails" class="w-4 h-4"> <span class="text-sm text-brown">Коктейли</span> </label> <label class="flex items-center gap-2 cursor-pointer"> <input type="checkbox" name="drinks" value="tinctures" class="w-4 h-4"> <span class="text-sm text-brown">Настойки</span> </label> <label class="flex items-center gap-2 cursor-pointer"> <input type="checkbox" name="drinks" value="strong" class="w-4 h-4"> <span class="text-sm text-brown">Крепкий алкоголь</span> </label> <label class="flex items-center gap-2 cursor-pointer"> <input type="checkbox" name="drinks" value="non-alcohol" class="w-4 h-4"> <span class="text-sm text-brown">Безалкогольные</span> </label>
+       </div>
+      </div><button type="submit" id="rsvp-btn" class="w-full bg-brown text-cream py-3 rounded-full text-sm tracking-widest uppercase hover:bg-dark transition-colors mt-4" style="font-weight:400"> Отправить </button>
+      <div id="rsvp-status" class="text-center text-sm text-brown hidden"></div>
+     </form>
+    </div>
+   </section><!-- FOOTER -->
+   <section class="py-16 px-6 text-center">
+    <p class="font-serif-display text-2xl sm:text-3xl italic text-brown fade-in">А &amp; В</p>
+    <p class="text-xs text-warm mt-4" style="font-weight:300">28.05.2026</p>
+   </section>
+  </div>
+  <script>
+// --- Default config ---
+const defaultConfig = {
+  hero_names: 'Алексей & Валерия',
+  hero_date: '28 мая 2026',
+  hero_phrase: 'ПРИВЕТ, МЫ ЖЕНИМСЯ',
+  rsvp_deadline: 'Пожалуйста, ответьте до 10 мая',
+  background_color: '#FAF6F1',
+  surface_color: '#EDE5DA',
+  text_color: '#3D3427',
+  accent_color: '#8B7355',
+  muted_color: '#D4C4B0',
+  font_family: 'Playfair Display',
+  font_size: 16
+};
+
+// --- Element SDK ---
+window.elementSdk.init({
+  defaultConfig,
+  onConfigChange: async (config) => {
+    const c = key => config[key] || defaultConfig[key];
+
+    document.getElementById('hero-names-el').innerHTML = c('hero_names').replace('&', '<span class="italic font-light">&</span>');
+    document.getElementById('hero-date-el').textContent = c('hero_date');
+    document.getElementById('hero-phrase-el').textContent = c('hero_phrase');
+    document.getElementById('rsvp-deadline-el').textContent = c('rsvp_deadline');
+
+    // Colors
+    const bg = c('background_color');
+    const surface = c('surface_color');
+    const txt = c('text_color');
+    const accent = c('accent_color');
+    const muted = c('muted_color');
+
+    document.body.style.backgroundColor = bg;
+    document.body.style.color = txt;
+
+    document.querySelectorAll('.text-brown').forEach(el => el.style.color = accent);
+    document.querySelectorAll('.bg-brown').forEach(el => el.style.backgroundColor = accent);
+    document.querySelectorAll('.border-warm').forEach(el => el.style.borderColor = muted);
+    document.querySelectorAll('.bg-beige').forEach(el => el.style.backgroundColor = surface);
+    document.querySelectorAll('.text-warm').forEach(el => el.style.color = muted);
+    document.querySelectorAll('.bg-warm').forEach(el => el.style.backgroundColor = muted);
+
+    // Fonts
+    const cf = c('font_family');
+    const bs = c('font_size');
+    document.querySelectorAll('.font-serif-display').forEach(el => {
+      el.style.fontFamily = `${cf}, Georgia, serif`;
+    });
+    document.body.style.fontSize = `${bs}px`;
+  },
+  mapToCapabilities: (config) => {
+    const c = key => config[key] || defaultConfig[key];
+    const mkColor = (key) => ({
+      get: () => c(key),
+      set: (v) => { config[key] = v; window.elementSdk.setConfig({ [key]: v }); }
+    });
+    return {
+      recolorables: [
+        mkColor('background_color'),
+        mkColor('surface_color'),
+        mkColor('text_color'),
+        mkColor('accent_color'),
+        mkColor('muted_color')
+      ],
+      borderables: [],
+      fontEditable: {
+        get: () => c('font_family'),
+        set: (v) => { config.font_family = v; window.elementSdk.setConfig({ font_family: v }); }
+      },
+      fontSizeable: {
+        get: () => c('font_size'),
+        set: (v) => { config.font_size = v; window.elementSdk.setConfig({ font_size: v }); }
+      }
+    };
+  },
+  mapToEditPanelValues: (config) => {
+    const c = key => config[key] || defaultConfig[key];
+    return new Map([
+      ['hero_names', c('hero_names')],
+      ['hero_date', c('hero_date')],
+      ['hero_phrase', c('hero_phrase')],
+      ['rsvp_deadline', c('rsvp_deadline')]
+    ]);
+  }
+});
+
+// --- Data SDK (RSVP) ---
+const dataHandler = { onDataChanged() {} };
+
+(async () => {
+  const r = await window.dataSdk.init(dataHandler);
+  if (!r.isOk) console.error('Data SDK init failed');
+})();
+
+// --- RSVP Form ---
+document.getElementById('rsvp-form').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const btn = document.getElementById('rsvp-btn');
+  const status = document.getElementById('rsvp-status');
+  btn.disabled = true;
+  btn.textContent = 'Отправляем...';
+
+  const selectedDrinks = [];
+  document.querySelectorAll('input[name="drinks"]:checked').forEach(cb => {
+    selectedDrinks.push(cb.value);
+  });
+
+  const record = {
+    name: document.getElementById('rsvp-name').value.trim(),
+    attending: document.getElementById('rsvp-attending').value,
+    plus_one: document.getElementById('rsvp-plus').value,
+    drinks: selectedDrinks.join(', '),
+    submitted_at: new Date().toISOString()
+  };
+
+  const result = await window.dataSdk.create(record);
+  if (result.isOk) {
+    status.textContent = 'Спасибо! Ваш ответ сохранён ♡';
+    status.classList.remove('hidden');
+    e.target.reset();
+  } else {
+    status.textContent = 'Произошла ошибка, попробуйте ещё раз';
+    status.classList.remove('hidden');
+  }
+  btn.disabled = false;
+  btn.textContent = 'Отправить';
+});
+
+// --- Scroll animations ---
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+// --- Lucide ---
+lucide.createIcons();
+</script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9f100c75553d8d8a',t:'MTc3Njk4MDY1Ny4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
