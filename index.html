@@ -323,16 +323,30 @@ const observer = new IntersectionObserver((entries) => {
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 // --- Cat side stickers ---
-// At first cats are hidden. After the first meaningful scroll they slide in and stay visible.
+// Коты появляются после первого экрана, прячутся при возврате наверх
+// и исчезают на блоке RSVP, чтобы не перекрывать поля формы.
 const app = document.getElementById('app');
-const revealCats = () => {
-  if (app.scrollTop > Math.max(180, window.innerHeight * 0.35)) {
-    document.body.classList.add('cats-visible');
-    app.removeEventListener('scroll', revealCats);
+const rsvpSection = document.querySelector('#rsvp-form')?.closest('section');
+
+const updateCatsVisibility = () => {
+  const topHideZone = Math.max(180, window.innerHeight * 0.35);
+  const shouldHideAtTop = app.scrollTop <= topHideZone;
+
+  let shouldHideOnRsvp = false;
+  if (rsvpSection) {
+    const rsvpRect = rsvpSection.getBoundingClientRect();
+    const appRect = app.getBoundingClientRect();
+
+    // Прячем котов чуть заранее, когда блок RSVP входит в видимую область.
+    shouldHideOnRsvp = rsvpRect.top < appRect.bottom - 80 && rsvpRect.bottom > appRect.top + 80;
   }
+
+  document.body.classList.toggle('cats-visible', !shouldHideAtTop && !shouldHideOnRsvp);
 };
-app.addEventListener('scroll', revealCats, { passive: true });
-revealCats();
+
+app.addEventListener('scroll', updateCatsVisibility, { passive: true });
+window.addEventListener('resize', updateCatsVisibility);
+updateCatsVisibility();
 
 // --- Lucide ---
 if (window.lucide) lucide.createIcons();
