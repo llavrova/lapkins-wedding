@@ -65,22 +65,37 @@
     filter: saturate(0.92) contrast(0.96);
   }
   .cat-peek {
-    position: fixed; z-index: 30; width: clamp(70px, 10vw, 130px);
-    opacity: 0; pointer-events: none; filter: drop-shadow(0 10px 18px rgba(61,52,39,.18));
+    position: fixed;
+    z-index: 30;
+    width: clamp(64px, 9vw, 118px);
+    opacity: 0;
+    pointer-events: none;
+    filter: drop-shadow(0 10px 18px rgba(61,52,39,.18));
     transition: opacity .8s ease, transform .8s ease;
   }
   .cat-peek img { width: 100%; display: block; }
-  .cat-left { left: 0; top: 28%; transform: translateX(-105%) rotate(-8deg); }
-  .cat-right { right: 0; top: 52%; transform: translateX(105%) rotate(8deg); }
-  .cat-peek.visible { opacity: 1; }
-  .cat-left.visible { transform: translateX(-22%) rotate(-8deg); }
-  .cat-right.visible { transform: translateX(22%) rotate(8deg); }
+
+  .cat-left-1 { left: 0; top: 22%; transform: translateX(-115%) rotate(-8deg); }
+  .cat-left-2 { left: 0; top: 58%; transform: translateX(-115%) rotate(7deg); }
+  .cat-right-1 { right: 0; top: 34%; transform: translateX(115%) rotate(8deg); }
+  .cat-right-2 { right: 0; top: 72%; transform: translateX(115%) rotate(-7deg); }
+
+  .cats-visible .cat-peek { opacity: 1; }
+  .cats-visible .cat-left-1 { transform: translateX(-24%) rotate(-8deg); transition-delay: .05s; }
+  .cats-visible .cat-left-2 { transform: translateX(-30%) rotate(7deg); transition-delay: .18s; }
+  .cats-visible .cat-right-1 { transform: translateX(24%) rotate(8deg); transition-delay: .12s; }
+  .cats-visible .cat-right-2 { transform: translateX(30%) rotate(-7deg); transition-delay: .25s; }
+
   @media (max-width: 640px) {
-    .cat-peek { width: 82px; }
-    .cat-left { top: 18%; }
-    .cat-right { top: 66%; }
-    .cat-left.visible { transform: translateX(-35%) rotate(-8deg); }
-    .cat-right.visible { transform: translateX(35%) rotate(8deg); }
+    .cat-peek { width: 70px; }
+    .cat-left-1 { top: 17%; }
+    .cat-left-2 { top: 68%; }
+    .cat-right-1 { top: 31%; }
+    .cat-right-2 { top: 79%; }
+    .cats-visible .cat-left-1 { transform: translateX(-40%) rotate(-8deg); }
+    .cats-visible .cat-left-2 { transform: translateX(-45%) rotate(7deg); }
+    .cats-visible .cat-right-1 { transform: translateX(40%) rotate(8deg); }
+    .cats-visible .cat-right-2 { transform: translateX(45%) rotate(-7deg); }
   }
 </style>
   <script>
@@ -102,8 +117,10 @@ tailwind.config = {
  </head>
  <body class="h-full font-body bg-cream text-dark">
   <div id="app" class="w-full h-full overflow-auto">
-   <div class="cat-peek cat-left" aria-hidden="true"><img src="images/cat-left.png" alt=""></div>
-   <div class="cat-peek cat-right" aria-hidden="true"><img src="images/cat-right.png" alt=""></div>
+   <div class="cat-peek cat-left-1" aria-hidden="true"><img src="images/cat-left-1.png" alt=""></div>
+   <div class="cat-peek cat-left-2" aria-hidden="true"><img src="images/cat-left-2.png" alt=""></div>
+   <div class="cat-peek cat-right-1" aria-hidden="true"><img src="images/cat-right-1.png" alt=""></div>
+   <div class="cat-peek cat-right-2" aria-hidden="true"><img src="images/cat-right-2.png" alt=""></div>
    <!-- HERO -->
    <section class="min-h-full flex flex-col items-center justify-center px-6 py-20 text-center relative">
     <p class="text-sm tracking-[0.35em] uppercase text-brown mb-6 fade-in font-body" style="font-weight:400" id="hero-phrase-el">ПРИВЕТ, МЫ ЖЕНИМСЯ</p>
@@ -305,13 +322,17 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-const catObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    document.querySelectorAll('.cat-peek').forEach(cat => cat.classList.toggle('visible', entry.isIntersecting));
-  });
-}, { threshold: 0.35, root: document.getElementById('app') });
-const couplePhotos = document.getElementById('couple-photos');
-if (couplePhotos) catObserver.observe(couplePhotos);
+// --- Cat side stickers ---
+// At first cats are hidden. After the first meaningful scroll they slide in and stay visible.
+const app = document.getElementById('app');
+const revealCats = () => {
+  if (app.scrollTop > Math.max(180, window.innerHeight * 0.35)) {
+    document.body.classList.add('cats-visible');
+    app.removeEventListener('scroll', revealCats);
+  }
+};
+app.addEventListener('scroll', revealCats, { passive: true });
+revealCats();
 
 // --- Lucide ---
 if (window.lucide) lucide.createIcons();
